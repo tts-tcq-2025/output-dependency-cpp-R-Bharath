@@ -18,5 +18,13 @@ void testTshirtSize() {
     assert(size(37) == 'S');
     assert(size(40) == 'M');
     assert(size(43) == 'L');
+    // ❗ New tests to expose the bug
+    assert(size(38) == 'S');  // Will fail –– bug: 38 not handled
+    assert(size(42) == 'M');  // Will fail –– bug: 42 not handled
     std::cout << "All is well (maybe!)\n";
+}
+
+int main() {
+    testTshirtSize();
+    return 0;
 }
